@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import { NavBar } from './components/NavBar';
-import { Form } from './components/Form';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Read } from './components/Read';
-import { Update } from './components/Update';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import ProductCard from "./components/ProductCard";
+import CartPage from "./components/cartPage";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <NavBar></NavBar>
-
+    <BrowserRouter>
+      <div>
+        <Navbar />
         <Routes>
-          <Route exact path='/' element={<Form></Form>} />
-          <Route exact path='/read' element={<Read></Read>} />
-          <Route exact path='/edit/:id' element={<Update></Update>} />
+          <Route exact path="/" element={<ProductCard />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
-      </BrowserRouter>
-
-    </>
+      </div>
+    </BrowserRouter>
   );
 }
 
